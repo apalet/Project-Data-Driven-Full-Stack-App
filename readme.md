@@ -1,0 +1,43 @@
+### Friendly Eats with Next.js + Firebase
+
+The codelab has the full instructions, but as a quick start, you can do this.
+
+#### Run the application
+
+1. In your terminal, run:
+
+```sh
+firebase emulators:start --project demo-codelab-nextjs
+```
+
+2. Copy the file `lib/firebase/config-copy.js` to `lib/firebase/config.js` and fill in the values from the Firebase console.
+
+3. In a new terminal tab/window, run:
+
+```sh
+npm i
+npm run dev
+```
+
+4. In your browser, open the URL: `http://localhost:3000`
+
+#### Use the application
+
+1. While on `http://localhost:3000/` within your browser, click the "Sign in" button in the top right corner and sign in.
+2. In the dropdown menu in the top right menu, select "Add sample restaurants".
+
+
+firebase local path: ./node_modules/firebase-tools/lib/bin/firebase.js 
+
+Project-ID: friendlyeats-codelab-bbe51
+
+Cloud Secret Manager: ./node_modules/firebase-tools/lib/bin/firebase.js apphosting:secrets:set GEMINI_API_KEY
+
+./node_modules/firebase-tools/lib/bin/firebase.js apphosting:secrets:access GEMINI_API_KEY
+
+npx firebase apphosting:secrets:grantaccess GEMINI_API_KEY --backend friendlyeats-codelab
+./node_modules/firebase-tools/lib/bin/firebase.js login --reauth
+
+deploy new rules for firestore using: 
+firebase deploy --only firestore:rules
+./node_modules/firebase-tools/lib/bin/firebase.js deploy --only firestore:rules
