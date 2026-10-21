@@ -30,7 +30,7 @@ const aiTools = [
     pricingDetails: "Free, Plus ($20/mo), Team, Enterprise",
     pricingSource: "Official website",
     alternatives: ["Claude", "Gemini", "Perplexity"],
-    photo: "https://upload.wikimedia.org/wikipedia/commons/e/ef/ChatGPT-Logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
     additionalInfo: "GPT-4 and GPT-4o models available",
   },
   {
@@ -44,7 +44,7 @@ const aiTools = [
     pricingDetails: "Free, Pro ($18/mo), Team, Enterprise",
     pricingSource: "Official website",
     alternatives: ["ChatGPT", "Gemini"],
-    photo: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Claude_AI_symbol.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Anthropic_logo.svg/240px-Anthropic_logo.svg.png",
     additionalInfo: "Claude 3.5 Sonnet with 200K context window",
   },
   {

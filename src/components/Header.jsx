@@ -13,6 +13,7 @@ import {
 import { addSampleToolsAndReviews } from "@/src/lib/firebase/firestore.js";
 // Helpers to store or clear the session cookie on the client
 import { setCookie, deleteCookie } from "cookies-next";
+import ThemeToggle from "@/src/components/ThemeToggle";
 
 // In order to pass the authentication state to the server, we'll use cookies.
 // Whenever the authentication state changes in the client, we'll update the __session cookie.
@@ -73,6 +74,7 @@ export default function Header({ initialUser }) {
         <img src="/friendly-eats.svg" alt="IA Discovery" />
         IA Discovery
       </Link>
+      <ThemeToggle />
       {user ? (
         <>
           {/* Signed-in profile: photo, name, and dropdown menu */}

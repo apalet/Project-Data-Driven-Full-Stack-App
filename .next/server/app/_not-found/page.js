@@ -5,7 +5,7 @@ R.c("server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_0cz7t
 R.c("server/chunks/ssr/node_modules_next_dist_0janj0i6dqko7._.js")
 R.c("server/chunks/ssr/node_modules_@opentelemetry_api_build_esm_0o6-tx6xnf9nj._.js")
 R.c("server/chunks/ssr/node_modules_next_dist_1qrfck6kfdp-h._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__1go1ghu4jnlrd._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__1q39nvcf1fon1._.js")
 R.c("server/chunks/ssr/_0cm13a-qa_hd7._.js")
 R.c("server/chunks/ssr/node_modules_next_dist_compiled_@edge-runtime_cookies_index_1kiz_an963mbg.js")
 R.c("server/chunks/ssr/node_modules_next_dist_client_components_0wpq8j32_ibz4._.js")
