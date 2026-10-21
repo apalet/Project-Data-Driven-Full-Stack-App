@@ -9,8 +9,8 @@ import {
   signOut,
   onIdTokenChanged,
 } from "@/src/lib/firebase/auth.js";
-// Seeds Firestore with demo restaurants and reviews
-import { addFakeRestaurantsAndReviews } from "@/src/lib/firebase/firestore.js";
+// Seeds Firestore with demo AI tools and reviews
+import { addSampleToolsAndReviews } from "@/src/lib/firebase/firestore.js";
 // Helpers to store or clear the session cookie on the client
 import { setCookie, deleteCookie } from "cookies-next";
 
@@ -58,8 +58,8 @@ export default function Header({ initialUser }) {
     <header>
       {/* App logo and name; clicking returns to the home page */}
       <Link href="/" className="logo">
-        <img src="/friendly-eats.svg" alt="FriendlyEats" />
-        Friendly Eats
+        <img src="/friendly-eats.svg" alt="IA Discovery" />
+        IA Discovery
       </Link>
       {user ? (
         <>
@@ -80,9 +80,13 @@ export default function Header({ initialUser }) {
                 <li>{user.displayName}</li>
 
                 <li>
+                  <Link href="/favorites">My Favorites</Link>
+                </li>
+
+                <li>
                   {/* Dev helper: populate Firestore with sample data */}
-                  <a href="#" onClick={addFakeRestaurantsAndReviews}>
-                    Add sample restaurants
+                  <a href="#" onClick={addSampleToolsAndReviews}>
+                    Add sample tools
                   </a>
                 </li>
 

@@ -1,4 +1,4 @@
-// The filters shown on the restaurant listings page
+// The filters shown on the tool listings page
 
 import Tag from "@/src/components/Tag.jsx";
 
@@ -38,7 +38,7 @@ export default function Filters({ filters, setFilters }) {
         <summary>
           <img src="/filter.svg" alt="filter" />
           <div>
-            <p>Restaurants</p>
+            <p>AI Tools</p>
             <p>Sorted by {filters.sort || "Rating"}</p>
           </div>
         </summary>
@@ -54,19 +54,17 @@ export default function Filters({ filters, setFilters }) {
             label="Category"
             options={[
               "",
-              "Italian",
-              "Chinese",
-              "Japanese",
-              "Mexican",
-              "Indian",
-              "Mediterranean",
-              "Caribbean",
-              "Cajun",
-              "German",
-              "Russian",
-              "Cuban",
-              "Organic",
-              "Tapas",
+              "Generative AI",
+              "Code Assistant",
+              "Autonomous Agents",
+              "Image Generation",
+              "Writing Assistant",
+              "Research",
+              "Marketing",
+              "Productivity",
+              "Creative",
+              "Video Generation",
+              "Audio Generation",
             ]}
             value={filters.category}
             onChange={(event) => handleSelectionChange(event, "category")}
@@ -75,33 +73,29 @@ export default function Filters({ filters, setFilters }) {
           />
 
           <FilterSelect
-            label="City"
+            label="Platform"
             options={[
               "",
-              "New York",
-              "Los Angeles",
-              "London",
-              "Paris",
-              "Tokyo",
-              "Mumbai",
-              "Dubai",
-              "Amsterdam",
-              "Seoul",
-              "Singapore",
-              "Istanbul",
+              "Web",
+              "API",
+              "VS Code",
+              "Desktop",
+              "Mobile",
+              "Browser Extension",
+              "Discord",
             ]}
-            value={filters.city}
-            onChange={(event) => handleSelectionChange(event, "city")}
-            name="city"
+            value={filters.platform}
+            onChange={(event) => handleSelectionChange(event, "platform")}
+            name="platform"
             icon="/location.svg"
           />
 
           <FilterSelect
-            label="Price"
-            options={["", "$", "$$", "$$$", "$$$$"]}
-            value={filters.price}
-            onChange={(event) => handleSelectionChange(event, "price")}
-            name="price"
+            label="Pricing Model"
+            options={["", "Free", "Freemium", "Paid", "Open Source"]}
+            value={filters.pricingModel}
+            onChange={(event) => handleSelectionChange(event, "pricingModel")}
+            name="pricingModel"
             icon="/price.svg"
           />
 
@@ -121,9 +115,9 @@ export default function Filters({ filters, setFilters }) {
                 type="reset"
                 onClick={() => {
                   setFilters({
-                    city: "",
                     category: "",
-                    price: "",
+                    platform: "",
+                    pricingModel: "",
                     sort: "",
                   });
                 }}

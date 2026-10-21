@@ -1,4 +1,4 @@
-// Server Component that loads a restaurant's reviews from Firestore, asks Gemini
+// Server Component that loads a tool's reviews from Firestore, asks Gemini
 // for a one-sentence summary, and renders it. GeminiSummarySkeleton is the
 // loading placeholder while that async work finishes.
 
@@ -6,23 +6,23 @@
 import { genkit } from "genkit"; // Genkit runtime used to call the model
 import { googleAI, gemini } from '@genkit-ai/googleai';
 // import { vertexAI } from '@genkit-ai/vertexai';
-import { getReviewsByRestaurantId } from "@/src/lib/firebase/firestore.js";
+import { getReviewsByToolId } from "@/src/lib/firebase/firestore.js";
 import { getAuthenticatedAppForUser } from "@/src/lib/firebase/serverApp";
 import { getFirestore } from "firebase/firestore";
 
 // Implement the review summary component with generative AI
-export async function GeminiSummary({ restaurantId }) {
+export async function GeminiSummary({ toolId }) {
   const { firebaseServerApp } = await getAuthenticatedAppForUser();
-  const reviews = await getReviewsByRestaurantId(
+  const reviews = await getReviewsByToolId(
     getFirestore(firebaseServerApp),
-    restaurantId
+    toolId
   );
 
   const reviewSeparator = "@"; // Character used in the prompt so Gemini can tell reviews apart
   const prompt = `
-    Based on the following restaurant reviews, 
-    where each review is separated by a '${reviewSeparator}' character, 
-    create a one-sentence summary of what people think of the restaurant. 
+    Based on the following AI tool reviews,
+    where each review is separated by a '${reviewSeparator}' character,
+    create a one-sentence summary of what people think of this AI tool.
 
     Here are the reviews: ${reviews.map((review) => review.text).join(reviewSeparator)}
   `;
@@ -39,10 +39,10 @@ export async function GeminiSummary({ restaurantId }) {
     // Configure a Genkit instance using option 1.
     const ai = genkit({
       plugins: [googleAI()],
-      model: gemini('gemini-3.8-flash'), // or actual stable model 
+      model: gemini('gemini-3.8-flash'), // or actual stable model
     });
     const { text } = await ai.generate(prompt); // One-sentence summary from Gemini
-  
+
     // // Configure a Genkit instance using option 2.
     // const ai = genkit({
     //   plugins: [vertexAI({ location: 'us-central1' })],

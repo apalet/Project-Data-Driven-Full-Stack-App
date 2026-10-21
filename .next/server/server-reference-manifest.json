@@ -1,0 +1,26 @@
+{
+  "node": {
+    "403c7ec5da8d376d56da1b78eab1d3ac23cd582be8": {
+      "workers": {
+        "app/tool/[id]/page": {
+          "moduleId": 44304,
+          "async": false
+        }
+      },
+      "filename": "src/app/actions.js",
+      "exportedName": "handleToggleFavorite"
+    },
+    "40e8625632ff36076bcf6d6e6ee0bca78c6b42bc67": {
+      "workers": {
+        "app/tool/[id]/page": {
+          "moduleId": 44304,
+          "async": false
+        }
+      },
+      "filename": "src/app/actions.js",
+      "exportedName": "handleReviewFormSubmission"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "9EAIPl4XD0n2e6UqWHn/oIdLe5+y5IqC5eIwM9Z9/EI="
+}

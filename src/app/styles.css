@@ -83,7 +83,7 @@ footer {
   }
 
   & .button--confirm {
-    background-color: rgb(255 111 0);
+    background-color: rgb(13 42 69);
     color: white;
     border-radius: 3px;
   }
@@ -97,7 +97,7 @@ footer {
 }
 
 header {
-  background-color: rgb(56 85 116);
+  background-color: rgb(13 42 69);
   color: white;
   display: flex;
   justify-content: space-between;
@@ -150,13 +150,13 @@ header {
 .menu ul {
   /* display: block; */
   left: calc(-220px * 0.9);
-  color: rgb(42 72 101);
+  color: rgb(13 42 69);
   background-color: white;
   box-shadow: 0 0 10px 0 rgb(0 0 0 / 50%);
 
   & li {
     padding: 10px;
-    border-bottom: 1px solid rgb(42 72 101 / 0.25);
+    border-bottom: 1px solid rgb(13 42 69 / 0.25);
   }
 
   & a {
@@ -165,7 +165,7 @@ header {
   }
 
   & li:has(a):hover {
-    background-color: rgb(42 72 101 / 0.05);
+    background-color: rgb(13 42 69 / 0.05);
   }
 
   & a:visited {
@@ -194,18 +194,18 @@ header {
 }
 
 .main__home {
-  background-color: rgb(178 193 212);
+  background-color: rgb(240 242 245);
   min-height: 100vh;
 }
 
 .main__restaurant {
-  background-color: rgb(229 234 240);
+  background-color: rgb(240 242 245);
   min-height: 90vh;
 }
 
 article {
   margin: 0 auto;
-  background-color: rgb(229 234 240);
+  background-color: rgb(240 242 245);
   padding: 20px 40px;
 }
 
@@ -481,7 +481,7 @@ a {
 .filter-menu {
   background-color: white;
   border-radius: 3px;
-  border-bottom: 1px solid rgb(27 58 87);
+  border-bottom: 1px solid rgb(13 42 69);
 
   & summary {
     font-weight: bold;
@@ -529,7 +529,7 @@ a {
     border: 0;
     border-bottom-width: 2px;
     border-style: solid;
-    border-color: #e5e7eb;
+    border-color: rgb(13 42 69);
   }
 
   & p:first-child {
@@ -540,7 +540,7 @@ a {
   }
 
   & p:last-child {
-    color: rgb(42 72 101);
+    color: rgb(13 42 69);
     font-weight: 600;
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -564,7 +564,7 @@ a {
     padding-bottom: 0.25rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    background-color: rgb(71 98 130);
+    background-color: rgb(13 42 69);
     border-radius: 9999px;
     color: white;
     font-size: 0.95rem;

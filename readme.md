@@ -1,4 +1,6 @@
-### Friendly Eats with Next.js + Firebase
+### IA Discovery with Next.js + Firebase
+
+IA Discovery is an independent platform for discovering, comparing, and reviewing AI tools. Built with Next.js and Firebase, this app allows users to explore AI tools by category, search and filter results, compare tools, submit reviews, and save favorites.
 
 The codelab has the full instructions, but as a quick start, you can do this.
 
@@ -24,7 +26,7 @@ npm run dev
 #### Use the application
 
 1. While on `http://localhost:3000/` within your browser, click the "Sign in" button in the top right corner and sign in.
-2. In the dropdown menu in the top right menu, select "Add sample restaurants".
+2. In the dropdown menu in the top right menu, select "Add sample tools" to populate the database with AI tools.
 
 
 firebase local path: ./node_modules/firebase-tools/lib/bin/firebase.js 
@@ -41,3 +43,5 @@ npx firebase apphosting:secrets:grantaccess GEMINI_API_KEY --backend friendlyeat
 deploy new rules for firestore using: 
 firebase deploy --only firestore:rules
 ./node_modules/firebase-tools/lib/bin/firebase.js deploy --only firestore:rules
+
+./node_modules/firebase-tools/lib/bin/firebase.js emulators:start --project ia-discovery

@@ -1,7 +1,7 @@
 "use client";
 
-// Modal for writing a restaurant review. Stars + text are collected in a form
-// that posts via a Next.js Server Action; hidden fields send restaurant and user ids.
+// Modal for writing a tool review. Stars + text are collected in a form
+// that posts via a Next.js Server Action; hidden fields send tool and user ids.
 
 // This components handles the review dialog and uses a next.js feature known as Server Actions to handle the form submission
 
@@ -15,7 +15,7 @@ const ReviewDialog = ({
   review, // Controlled review state from the parent (at least { text })
   onChange,
   userId,
-  id, // Restaurant document id
+  id, // Tool document id
 }) => {
   const dialog = useRef(); // Points at the <dialog> so we can call showModal()/close()
 
@@ -62,7 +62,7 @@ const ReviewDialog = ({
           </p>
 
           {/* Not shown in the UI; the Server Action needs these ids in FormData */}
-          <input type="hidden" name="restaurantId" value={id} />
+          <input type="hidden" name="toolId" value={id} />
           <input type="hidden" name="userId" value={userId} />
         </article>
         <footer>
