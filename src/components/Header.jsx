@@ -54,6 +54,18 @@ export default function Header({ initialUser }) {
     signInWithGoogle();
   };
 
+  const handleAddSampleTools = async (event) => {
+    event.preventDefault();
+    try {
+      await addSampleToolsAndReviews();
+      alert("Sample tools added successfully!");
+      window.location.reload();
+    } catch (error) {
+      console.error("Error adding sample tools:", error);
+      alert("Error adding sample tools. Check console for details.");
+    }
+  };
+
   return (
     <header>
       {/* App logo and name; clicking returns to the home page */}
@@ -85,7 +97,7 @@ export default function Header({ initialUser }) {
 
                 <li>
                   {/* Dev helper: populate Firestore with sample data */}
-                  <a href="#" onClick={addSampleToolsAndReviews}>
+                  <a href="#" onClick={handleAddSampleTools}>
                     Add sample tools
                   </a>
                 </li>
