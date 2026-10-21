@@ -38,10 +38,10 @@ Cloud Secret Manager: ./node_modules/firebase-tools/lib/bin/firebase.js apphosti
 ./node_modules/firebase-tools/lib/bin/firebase.js apphosting:secrets:access GEMINI_API_KEY
 
 npx firebase apphosting:secrets:grantaccess GEMINI_API_KEY --backend friendlyeats-codelab
-./node_modules/firebase-tools/lib/bin/firebase.js login --reauth
 
 deploy new rules for firestore using: 
 firebase deploy --only firestore:rules
 ./node_modules/firebase-tools/lib/bin/firebase.js deploy --only firestore:rules
 
 ./node_modules/firebase-tools/lib/bin/firebase.js emulators:start --project ia-discovery
+
