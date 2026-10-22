@@ -429,7 +429,6 @@ a {
   align-items: center;
   justify-content: center;
   padding: var(--spacing-xl);
-  overflow: hidden;
 
   & img {
     max-width: 100%;
