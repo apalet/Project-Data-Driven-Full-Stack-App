@@ -4,7 +4,7 @@ import React from "react";
 
 const RatingPicker = () => {
   return (
-    <p className="rating-picker">
+    <div className="rating-picker">
       <input
         className="radio-input"
         type="radio"
@@ -13,7 +13,7 @@ const RatingPicker = () => {
         value="5"
       />
       <label className="radio-label" htmlFor="star5" title="5 stars">
-        5 stars
+        ★
       </label>
 
       <input
@@ -24,7 +24,7 @@ const RatingPicker = () => {
         value="4"
       />
       <label className="radio-label" htmlFor="star4" title="4 stars">
-        4 stars
+        ★
       </label>
 
       <input
@@ -35,7 +35,7 @@ const RatingPicker = () => {
         value="3"
       />
       <label className="radio-label" htmlFor="star3" title="3 stars">
-        3 stars
+        ★
       </label>
 
       <input
@@ -46,7 +46,7 @@ const RatingPicker = () => {
         value="2"
       />
       <label className="radio-label" htmlFor="star2" title="2 stars">
-        2 stars
+        ★
       </label>
 
       <input
@@ -57,9 +57,9 @@ const RatingPicker = () => {
         value="1"
       />
       <label className="radio-label" htmlFor="star1" title="1 star">
-        1 star
+        ★
       </label>
-    </p>
+    </div>
   );
 };
 
