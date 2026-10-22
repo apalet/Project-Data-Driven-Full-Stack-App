@@ -10,72 +10,19 @@ export default function ComparisonTable({ tools }) {
   }
 
   return (
-    <div style={{ overflowX: "auto" }}>
-      <table
-        style={{
-          width: "100%",
-          borderCollapse: "collapse",
-          marginTop: "20px",
-        }}
-      >
+    <div className="comparison-table">
+      <table>
         <thead>
           <tr>
-            <th
-              style={{
-                border: "1px solid #ddd",
-                padding: "12px",
-                textAlign: "left",
-                backgroundColor: "rgb(13 42 69)",
-                color: "white",
-              }}
-            >
-              Feature
-            </th>
+            <th>Feature</th>
             {tools.map((tool) => (
-              <th
-                key={tool.id}
-                style={{
-                  border: "1px solid #ddd",
-                  padding: "12px",
-                  textAlign: "center",
-                  backgroundColor: "rgb(13 42 69)",
-                  color: "white",
-                  minWidth: "200px",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "10px",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "80px",
-                      height: "80px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      padding: "8px",
-                      borderRadius: "8px",
-                      backgroundColor: "#F8FAFC",
-                    }}
-                  >
-                    <img
-                      src={tool.photo}
-                      alt={tool.name}
-                      style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
-                    />
+              <th key={tool.id}>
+                <div className="comparison-table__header">
+                  <div className="comparison-table__image">
+                    <img src={tool.photo} alt={tool.name} />
                   </div>
                   <div>
-                    <Link
-                      href={`/tool/${tool.id}`}
-                      style={{ color: "white", textDecoration: "underline" }}
-                    >
-                      {tool.name}
-                    </Link>
+                    <Link href={`/tool/${tool.id}`}>{tool.name}</Link>
                   </div>
                 </div>
               </th>
@@ -84,44 +31,20 @@ export default function ComparisonTable({ tools }) {
         </thead>
         <tbody>
           <tr>
-            <td
-              style={{
-                border: "1px solid #ddd",
-                padding: "12px",
-                fontWeight: "bold",
-              }}
-            >
-              Rating
-            </td>
+            <td>Rating</td>
             {tools.map((tool) => (
-              <td
-                key={tool.id}
-                style={{ border: "1px solid #ddd", padding: "12px", textAlign: "center" }}
-              >
-                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
-                  <ul style={{ display: "flex", margin: 0, padding: 0 }}>
-                    {renderStars(tool.avgRating)}
-                  </ul>
+              <td key={tool.id}>
+                <div className="comparison-table__rating">
+                  <ul>{renderStars(tool.avgRating)}</ul>
                   <span>({tool.numRatings})</span>
                 </div>
               </td>
             ))}
           </tr>
           <tr>
-            <td
-              style={{
-                border: "1px solid #ddd",
-                padding: "12px",
-                fontWeight: "bold",
-              }}
-            >
-              Categories
-            </td>
+            <td>Categories</td>
             {tools.map((tool) => (
-              <td
-                key={tool.id}
-                style={{ border: "1px solid #ddd", padding: "12px", textAlign: "center" }}
-              >
+              <td key={tool.id}>
                 {tool.categories && tool.categories.length > 0
                   ? tool.categories.join(", ")
                   : "N/A"}
@@ -129,20 +52,9 @@ export default function ComparisonTable({ tools }) {
             ))}
           </tr>
           <tr>
-            <td
-              style={{
-                border: "1px solid #ddd",
-                padding: "12px",
-                fontWeight: "bold",
-              }}
-            >
-              Pricing
-            </td>
+            <td>Pricing</td>
             {tools.map((tool) => (
-              <td
-                key={tool.id}
-                style={{ border: "1px solid #ddd", padding: "12px", textAlign: "center", fontSize: "12px" }}
-              >
+              <td key={tool.id}>
                 {tool.pricingDetails || (tool.pricingModel && tool.pricingModel.length > 0
                   ? tool.pricingModel.join(", ")
                   : "N/A")}
@@ -150,20 +62,9 @@ export default function ComparisonTable({ tools }) {
             ))}
           </tr>
           <tr>
-            <td
-              style={{
-                border: "1px solid #ddd",
-                padding: "12px",
-                fontWeight: "bold",
-              }}
-            >
-              Platforms
-            </td>
+            <td>Platforms</td>
             {tools.map((tool) => (
-              <td
-                key={tool.id}
-                style={{ border: "1px solid #ddd", padding: "12px", textAlign: "center" }}
-              >
+              <td key={tool.id}>
                 {tool.supportedPlatforms && tool.supportedPlatforms.length > 0
                   ? tool.supportedPlatforms.join(", ")
                   : "N/A"}
@@ -171,20 +72,9 @@ export default function ComparisonTable({ tools }) {
             ))}
           </tr>
           <tr>
-            <td
-              style={{
-                border: "1px solid #ddd",
-                padding: "12px",
-                fontWeight: "bold",
-              }}
-            >
-              Key Features
-            </td>
+            <td>Key Features</td>
             {tools.map((tool) => (
-              <td
-                key={tool.id}
-                style={{ border: "1px solid #ddd", padding: "12px", textAlign: "center" }}
-              >
+              <td key={tool.id}>
                 {tool.keyFeatures && tool.keyFeatures.length > 0
                   ? tool.keyFeatures.join(", ")
                   : "N/A"}
@@ -192,26 +82,14 @@ export default function ComparisonTable({ tools }) {
             ))}
           </tr>
           <tr>
-            <td
-              style={{
-                border: "1px solid #ddd",
-                padding: "12px",
-                fontWeight: "bold",
-              }}
-            >
-              Website
-            </td>
+            <td>Website</td>
             {tools.map((tool) => (
-              <td
-                key={tool.id}
-                style={{ border: "1px solid #ddd", padding: "12px", textAlign: "center" }}
-              >
+              <td key={tool.id}>
                 {tool.website ? (
                   <a
                     href={tool.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: "rgb(13 42 69)" }}
                   >
                     Visit
                   </a>
@@ -222,40 +100,17 @@ export default function ComparisonTable({ tools }) {
             ))}
           </tr>
           <tr>
-            <td
-              style={{
-                border: "1px solid #ddd",
-                padding: "12px",
-                fontWeight: "bold",
-              }}
-            >
-              Additional Info
-            </td>
+            <td>Additional Info</td>
             {tools.map((tool) => (
-              <td
-                key={tool.id}
-                style={{ border: "1px solid #ddd", padding: "12px", textAlign: "center", fontSize: "12px" }}
-              >
+              <td key={tool.id}>
                 {tool.additionalInfo || "N/A"}
               </td>
             ))}
           </tr>
         </tbody>
       </table>
-      <div style={{ marginTop: "20px" }}>
-        <Link
-          href="/"
-          style={{
-            display: "inline-block",
-            padding: "10px 20px",
-            backgroundColor: "rgb(13 42 69)",
-            color: "white",
-            textDecoration: "none",
-            borderRadius: "4px",
-          }}
-        >
-          Back to Tools
-        </Link>
+      <div className="comparison-table__back">
+        <Link href="/">Back to Tools</Link>
       </div>
     </div>
   );
