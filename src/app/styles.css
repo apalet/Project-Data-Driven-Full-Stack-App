@@ -135,15 +135,26 @@ footer {
   }
 
   & .button--cancel {
-    color: var(--text-secondary);
-    background-color: var(--bg-card);
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
     border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: var(--hover);
+    }
   }
 
   & .button--confirm {
     background-color: var(--accent-primary);
     color: white;
     border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #2563EB;
+    }
   }
 
   & menu {

@@ -60,7 +60,7 @@ export default function ComparisonTable({ tools }) {
                       justifyContent: "center",
                       padding: "8px",
                       borderRadius: "8px",
-                      backgroundColor: "var(--bg-primary)",
+                      backgroundColor: "#F8FAFC",
                     }}
                   >
                     <img
