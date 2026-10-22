@@ -12,11 +12,31 @@ export async function handleReviewFormSubmission(data) {
   const { firebaseServerApp } = await getAuthenticatedAppForUser();
   const db = getFirestore(firebaseServerApp);
 
-  await addReviewToTool(db, data.get("toolId"), {
-    text: data.get("text"),
-    rating: data.get("rating"),
-    // This came from a hidden form field.
-    userId: data.get("userId"),
+  const rating = data.get("rating");
+  const text = data.get("text");
+  const toolId = data.get("toolId");
+  const userId = data.get("userId");
+
+  if (!rating) {
+    throw new Error("Please select a star rating");
+  }
+
+  if (!text) {
+    throw new Error("Please write a review");
+  }
+
+  if (!toolId) {
+    throw new Error("Tool ID is required");
+  }
+
+  if (!userId) {
+    throw new Error("User ID is required");
+  }
+
+  await addReviewToTool(db, toolId, {
+    text: text,
+    rating: Number(rating),
+    userId: userId,
   });
 }
 

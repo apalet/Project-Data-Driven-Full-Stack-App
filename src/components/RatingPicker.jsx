@@ -11,7 +11,6 @@ const RatingPicker = () => {
         id="star5"
         name="rating"
         value="5"
-        defaultChecked
       />
       <label className="radio-label" htmlFor="star5" title="5 stars">
         5 stars
