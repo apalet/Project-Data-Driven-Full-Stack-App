@@ -43,13 +43,33 @@ export default function ComparisonTable({ tools }) {
                   minWidth: "200px",
                 }}
               >
-                <div>
-                  <img
-                    src={tool.photo}
-                    alt={tool.name}
-                    style={{ width: "80px", height: "80px", objectFit: "cover" }}
-                  />
-                  <div style={{ marginTop: "10px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "80px",
+                      height: "80px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: "8px",
+                      borderRadius: "8px",
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    }}
+                  >
+                    <img
+                      src={tool.photo}
+                      alt={tool.name}
+                      style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+                    />
+                  </div>
+                  <div>
                     <Link
                       href={`/tool/${tool.id}`}
                       style={{ color: "white", textDecoration: "underline" }}
