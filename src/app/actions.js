@@ -51,17 +51,27 @@ export async function handleReviewFormSubmission(data) {
 
 // Server Action for toggling favorites
 export async function handleToggleFavorite(data) {
+  console.log("=== Toggle Favorite Started ===");
+  
   const { currentUser } = await getAuthenticatedAppForUser();
+  console.log("Current User:", currentUser?.uid);
+  
   const toolId = data.get("toolId");
   const action = data.get("action"); // "add" or "remove"
+
+  console.log("Favorite data:", { toolId, action });
 
   if (!currentUser) {
     throw new Error("User must be authenticated to manage favorites");
   }
 
   if (action === "add") {
+    console.log("Adding favorite...");
     await addFavorite(currentUser.uid, toolId);
+    console.log("Favorite added successfully!");
   } else if (action === "remove") {
+    console.log("Removing favorite...");
     await removeFavorite(currentUser.uid, toolId);
+    console.log("Favorite removed successfully!");
   }
 }

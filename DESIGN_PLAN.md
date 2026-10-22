@@ -829,11 +829,12 @@ export default function ThemeToggle() {
 ## Verification Strategy
 
 **After Each Phase:**
-1. Run `npm run build` - Ensure no build errors
-2. Run `npm run dev` - Test locally
-3. Test all component interactions
-4. Test light/dark mode toggle
-5. Test responsive breakpoints
+1. Run `git add .` - Ensure no build errors
+2. Run `git commit -m "Phase X: Description"` - Test locally
+3. Run `git push` - Ensure no build errors
+4. Test all component interactions
+5. Test light/dark mode toggle
+6. Test responsive breakpoints
 
 **Final Verification:**
 - ✅ All pages load correctly
