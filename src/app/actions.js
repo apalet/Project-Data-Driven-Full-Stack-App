@@ -2,8 +2,7 @@
 
 import { addReviewToTool } from "@/src/lib/firebase/firestore.js";
 import { getAuthenticatedAppForUser } from "@/src/lib/firebase/serverApp.js";
-import { getFirestore } from "firebase/firestore";
-import { addFavorite, removeFavorite } from "@/src/lib/firebase/favorites.js";
+import { getFirestore, collection, doc, setDoc, deleteDoc } from "firebase/firestore";
 
 // This is a Server Action
 // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions
@@ -53,9 +52,10 @@ export async function handleReviewFormSubmission(data) {
 export async function handleToggleFavorite(data) {
   console.log("=== Toggle Favorite Started ===");
   
-  const { currentUser } = await getAuthenticatedAppForUser();
+  const { firebaseServerApp, currentUser } = await getAuthenticatedAppForUser();
   console.log("Current User:", currentUser?.uid);
   
+  const db = getFirestore(firebaseServerApp);
   const toolId = data.get("toolId");
   const action = data.get("action"); // "add" or "remove"
 
@@ -67,11 +67,16 @@ export async function handleToggleFavorite(data) {
 
   if (action === "add") {
     console.log("Adding favorite...");
-    await addFavorite(currentUser.uid, toolId);
+    const favoriteRef = doc(collection(db, "users", currentUser.uid, "favorites"), toolId);
+    await setDoc(favoriteRef, {
+      toolId,
+      addedAt: new Date(),
+    });
     console.log("Favorite added successfully!");
   } else if (action === "remove") {
     console.log("Removing favorite...");
-    await removeFavorite(currentUser.uid, toolId);
+    const favoriteRef = doc(collection(db, "users", currentUser.uid, "favorites"), toolId);
+    await deleteDoc(favoriteRef);
     console.log("Favorite removed successfully!");
   }
 }
