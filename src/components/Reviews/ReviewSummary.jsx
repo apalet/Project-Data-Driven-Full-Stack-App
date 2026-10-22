@@ -31,7 +31,7 @@ export async function GeminiSummary({ toolId }) {
     // Configure a Genkit instance using Vertex AI
     const ai = genkit({
       plugins: [vertexAI({ location: 'us-central1' })],
-      model: 'vertexai/gemini-3.8-flash', // Vertex AI model
+      model: 'vertexai/gemini-2.5-flash', // Vertex AI model
     });
     const { text } = await ai.generate(prompt); // One-sentence summary from Gemini
 
