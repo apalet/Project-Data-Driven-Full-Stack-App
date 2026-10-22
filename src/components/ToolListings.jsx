@@ -19,12 +19,13 @@ const ToolItem = ({ tool, selectedTools, toggleSelection }) => (
         onChange={() => toggleSelection(tool.id)}
         style={{
           position: "absolute",
-          top: "10px",
-          left: "10px",
+          top: "12px",
+          left: "12px",
           zIndex: 10,
-          width: "20px",
-          height: "20px",
+          width: "24px",
+          height: "24px",
           cursor: "pointer",
+          accentColor: "#3B82F6",
         }}
       />
       <Link href={`/tool/${tool.id}`}>
@@ -48,7 +49,7 @@ const ImageCover = ({ photo, name }) => (
 );
 
 const ToolDetails = ({ tool }) => (
-  <div className="restaurant__details">
+  <div className="tool__details">
     <h2>{tool.name}</h2>
     <ToolRating tool={tool} />
     <ToolMetadata tool={tool} />
@@ -56,14 +57,14 @@ const ToolDetails = ({ tool }) => (
 );
 
 const ToolRating = ({ tool }) => (
-  <div className="restaurant__rating">
+  <div className="tool__rating">
     <ul>{renderStars(tool.avgRating)}</ul>
     <span>({tool.numRatings})</span>
   </div>
 );
 
 const ToolMetadata = ({ tool }) => (
-  <div className="restaurant__meta">
+  <div className="tool__meta">
     <p>
       {tool.categories && tool.categories.length > 0
         ? tool.categories[0]
@@ -125,18 +126,22 @@ export default function ToolListings({
             href={`/compare?ids=${Array.from(selectedTools).join(",")}`}
             style={{
               display: "inline-block",
-              padding: "10px 20px",
-              backgroundColor: "rgb(13 42 69)",
+              padding: "12px 24px",
+              backgroundColor: "#3B82F6",
               color: "white",
               textDecoration: "none",
-              borderRadius: "4px",
+              borderRadius: "8px",
+              fontWeight: "600",
+              transition: "background-color 0.2s ease",
             }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#2563EB"}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#3B82F6"}
           >
             Compare {selectedTools.size} tool{selectedTools.size > 1 ? "s" : ""}
           </Link>
         </div>
       )}
-      <ul className="restaurants">
+      <ul className="tools">
         {tools.map((tool) => (
           <ToolItem
             key={tool.id}

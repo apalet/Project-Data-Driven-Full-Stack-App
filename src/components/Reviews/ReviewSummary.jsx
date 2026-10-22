@@ -51,7 +51,7 @@ export async function GeminiSummary({ toolId }) {
     // const { text } = await ai.generate(prompt);
 
     return (
-      <div className="restaurant__review_summary">
+      <div className="tool__review_summary">
         <p>{text}</p>
         <p>✨ Summarized with Gemini</p>
       </div>
@@ -65,7 +65,7 @@ export async function GeminiSummary({ toolId }) {
 // Shown by <Suspense> while GeminiSummary is still fetching reviews / generating
 export function GeminiSummarySkeleton() {
   return (
-    <div className="restaurant__review_summary">
+    <div className="tool__review_summary">
       <p>✨ Summarizing reviews with Gemini...</p>
     </div>
   );

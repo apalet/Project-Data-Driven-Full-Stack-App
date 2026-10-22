@@ -27,7 +27,7 @@ export default async function Home(props) {
   );
 
   return (
-    <main className="main__restaurant">
+    <main className="main__tool">
       <Tool
         id={params.id}
         initialTool={tool}

@@ -43,7 +43,7 @@ export default function FavoritesList({ initialTools, userId }) {
   }
 
   return (
-    <ul className="restaurants">
+    <ul className="tools">
       {tools.map((tool) => (
         <li key={tool.id}>
           <Link href={`/tool/${tool.id}`}>
@@ -51,13 +51,13 @@ export default function FavoritesList({ initialTools, userId }) {
               <div className="image-cover">
                 <img src={tool.photo} alt={tool.name} />
               </div>
-              <div className="restaurant__details">
+              <div className="tool__details">
                 <h2>{tool.name}</h2>
-                <div className="restaurant__rating">
+                <div className="tool__rating">
                   <ul>{renderStars(tool.avgRating)}</ul>
                   <span>({tool.numRatings})</span>
                 </div>
-                <div className="restaurant__meta">
+                <div className="tool__meta">
                   <p>
                     {tool.categories && tool.categories.length > 0
                       ? tool.categories[0]
