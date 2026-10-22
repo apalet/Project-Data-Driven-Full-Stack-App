@@ -16,6 +16,7 @@ service cloud.firestore {
     //   - Deletes are not allowed (default)
     match /tools/{toolId} {
       allow read;
+      allow update: if request.resource.data.lastReviewUserId != null;
       
       // Reviews:
       //   - Anyone can read (public access for browsing)
