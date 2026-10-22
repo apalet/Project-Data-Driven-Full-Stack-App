@@ -9,13 +9,20 @@ import { addFavorite, removeFavorite } from "@/src/lib/firebase/favorites.js";
 // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions
 // Replace the function below
 export async function handleReviewFormSubmission(data) {
-  const { firebaseServerApp } = await getAuthenticatedAppForUser();
+  console.log("=== Review Form Submission Started ===");
+  
+  const { firebaseServerApp, currentUser } = await getAuthenticatedAppForUser();
+  console.log("Firebase Server App initialized:", !!firebaseServerApp);
+  console.log("Current User:", currentUser?.uid);
+  
   const db = getFirestore(firebaseServerApp);
 
   const rating = data.get("rating");
   const text = data.get("text");
   const toolId = data.get("toolId");
   const userId = data.get("userId");
+
+  console.log("Form data:", { rating, text, toolId, userId });
 
   if (!rating) {
     throw new Error("Please select a star rating");
@@ -33,11 +40,13 @@ export async function handleReviewFormSubmission(data) {
     throw new Error("User ID is required");
   }
 
+  console.log("Calling addReviewToTool...");
   await addReviewToTool(db, toolId, {
     text: text,
     rating: Number(rating),
     userId: userId,
   });
+  console.log("Review added successfully!");
 }
 
 // Server Action for toggling favorites
