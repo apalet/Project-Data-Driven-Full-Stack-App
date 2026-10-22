@@ -57,7 +57,7 @@ export async function GeminiSummary({ toolId }) {
       </div>
     );
   } catch (e) {
-    console.error(e);
+    console.error("Gemini summary error:", e);
     return <p>Error summarizing reviews.</p>;
   }
 }
