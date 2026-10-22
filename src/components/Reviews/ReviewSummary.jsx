@@ -4,8 +4,8 @@
 
 // import { googleAI, gemini } from '@genkit-ai/googleai';
 import { genkit } from "genkit"; // Genkit runtime used to call the model
-import { googleAI, gemini } from '@genkit-ai/googleai';
-// import { vertexAI } from '@genkit-ai/vertexai';
+// import { googleAI, gemini } from '@genkit-ai/googleai';
+import { vertexAI } from '@genkit-ai/vertexai';
 import { getReviewsByToolId } from "@/src/lib/firebase/firestore.js";
 import { getAuthenticatedAppForUser } from "@/src/lib/firebase/serverApp";
 import { getFirestore } from "firebase/firestore";
@@ -28,27 +28,12 @@ export async function GeminiSummary({ toolId }) {
   `;
 
   try {
-    if (!process.env.GEMINI_API_KEY) {
-      // Make sure GEMINI_API_KEY environment variable is set:
-      // https://genkit.dev/docs/get-started/
-      throw new Error(
-        'GEMINI_API_KEY not set. Set it with "firebase apphosting:secrets:set GEMINI_API_KEY"'
-      );
-    }
-
-    // Configure a Genkit instance using option 1.
+    // Configure a Genkit instance using Vertex AI
     const ai = genkit({
-      plugins: [googleAI()],
-      model: gemini('gemini-3.8-flash'), // or actual stable model
+      plugins: [vertexAI({ location: 'us-central1' })],
+      model: 'vertexai/gemini-2.5-flash', // Vertex AI model
     });
     const { text } = await ai.generate(prompt); // One-sentence summary from Gemini
-
-    // // Configure a Genkit instance using option 2.
-    // const ai = genkit({
-    //   plugins: [vertexAI({ location: 'us-central1' })],
-    //   model: 'vertexai/gemini-2.5-flash', // set default model
-    // });
-    // const { text } = await ai.generate(prompt);
 
     return (
       <div className="tool__review_summary">
