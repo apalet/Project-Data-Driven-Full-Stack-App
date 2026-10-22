@@ -158,7 +158,7 @@ footer {
 }
 
 header {
-  background: linear-gradient(135deg, var(--bg-header), #1E293B);
+  background: var(--bg-header);
   color: var(--text-primary);
   display: flex;
   justify-content: space-between;
