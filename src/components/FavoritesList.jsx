@@ -39,7 +39,12 @@ export default function FavoritesList({ initialTools, userId }) {
   }, [userId]);
 
   if (tools.length === 0) {
-    return <p>You haven't added any tools to your favorites yet.</p>;
+    return (
+      <div className="favorites-empty">
+        <p>You haven't added any tools to your favorites yet.</p>
+        <Link href="/">Browse Tools</Link>
+      </div>
+    );
   }
 
   return (
