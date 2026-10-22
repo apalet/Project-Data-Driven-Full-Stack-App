@@ -1,9 +1,0 @@
-{
-  "/_global-error/page": "/_global-error",
-  "/_not-found/page": "/_not-found",
-  "/compare/page": "/compare",
-  "/favicon.ico/route": "/favicon.ico",
-  "/favorites/page": "/favorites",
-  "/page": "/",
-  "/tool/[id]/page": "/tool/[id]"
-}
